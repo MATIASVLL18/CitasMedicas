@@ -1,0 +1,141 @@
+/* Fondo animado con gotas azules */
+.home-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo animado */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,119,182,0.2) 10%, transparent 11%) center/15px 15px,
+              radial-gradient(circle, rgba(0,119,182,0.15) 10%, transparent 11%) center/30px 30px;
+  animation: gotas 8s linear infinite;
+  z-index: 0;
+}
+
+/* Animación del fondo */
+@keyframes gotas {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 200px 200px;
+  }
+}
+
+/* Contenido centrado */
+.home-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Imagen central */
+.home-icon {
+  width: 150px;
+  height: auto;
+  margin: 0 auto 30px;
+}
+
+/* Navegación */
+.navbar {
+  background-color: rgba(0, 119, 182, 0.9);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar li:hover {
+  color: #cceeff;
+}
+
+/* Contenedor de flechas e información */
+.arrow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Flechas */
+.arrow-button {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #0077b6;
+}
+
+.arrow-button:hover {
+  transform: scale(1.2);
+  color: #005f8e;
+}
+
+/* Información central */
+.info-section {
+  font-size: 18px;
+  transition: all 0.4s ease;
+  cursor: default;
+  padding: 0 15px;
+}
+
+.info-section:hover {
+  transform: scale(1.02);
+  color: #0077b6;
+}
+
+/* Botones de acción */
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.action-buttons button {
+  padding: 12px 25px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #005f8e;
+}

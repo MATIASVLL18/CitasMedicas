@@ -12,6 +12,8 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
+    "react-calendar": "^6.0.0",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.2"
   }
 }

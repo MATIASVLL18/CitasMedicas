@@ -1,0 +1,147 @@
+/* Reserva.css */
+
+.reserva-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  background-color: #1e90ff;
+  padding: 1rem;
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar li:hover {
+  color: #f0f0f0;
+}
+
+.reserva-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.reserva-titulo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.botones-especialidades {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.boton-especialidad {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.boton-especialidad:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.formulario-contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-titulo {
+  margin-bottom: 1rem;
+  color: #1e90ff;
+}
+
+.calendario-simulacion {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.calendario-simulacion ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.ocupado {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.formulario-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.formulario-reserva label {
+  font-weight: bold;
+  color: #34495e;
+}
+
+.formulario-reserva input,
+.formulario-reserva textarea {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.formulario-reserva button {
+  padding: 0.9rem;
+  background-color: #1e90ff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-reserva button:hover {
+  background-color: #0c7cd5;
+}
+/* Simulación de días ocupados en el calendario */
+.react-calendar {
+  margin: 1rem auto;
+  border: none;
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dia-ocupado abbr {
+  background-color: #e74c3c !important;
+  color: white !important;
+  border-radius: 50%;
+  padding: 0.4em;
+  display: inline-block;
+}
