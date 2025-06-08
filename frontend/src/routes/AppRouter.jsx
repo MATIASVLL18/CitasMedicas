@@ -5,6 +5,7 @@ import Login from '../pages/Login';
 import Registro from '../pages/Registro';
 import Perfil from '../pages/Perfil';
 import Reserva from '../pages/Reserva';
+import Medico from './pages/Medico';
 
 export default function AppRouter() {
   return (
@@ -16,6 +17,7 @@ export default function AppRouter() {
           <Route index element={<Home />} />
           <Route path="reserva" element={<Reserva />} />
           <Route path="perfil" element={<Perfil />} />
+          <Route path="/medico" element={<Medico />} />
         </Route>
       </Routes>
     </BrowserRouter>

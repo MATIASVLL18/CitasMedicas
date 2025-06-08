@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
+import Medico from './pages/Medico';
 
 import "./styles/index.css";
 
@@ -15,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
-        {/* Más rutas en el futuro */}
+        <Route path="/medico" element={<Medico />} />
       </Routes>
     </Router>
   </React.StrictMode>
