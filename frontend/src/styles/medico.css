@@ -1,0 +1,55 @@
+.medico-container {
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #f9f9f9; /* mismo fondo que el Login */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* misma sombra que el Login */
+  text-align: center;
+  font-family: inherit;
+  color: #333; /* texto oscuro, como en Login */
+}
+
+.cronograma-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: inherit;
+}
+
+.cronograma-table th,
+.cronograma-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+.cronograma-table th {
+  background-color: #2e86de;
+  color: #fff;
+}
+
+.cronograma-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.cronograma-table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.cronograma-table button {
+  border-radius: 6px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #2e86de;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cronograma-table button:hover {
+  background-color: #1c5dab;
+}
