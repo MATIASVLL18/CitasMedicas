@@ -18,6 +18,7 @@
               radial-gradient(circle, rgba(0,119,182,0.15) 10%, transparent 11%) center/30px 30px;
   animation: gotas 8s linear infinite;
   z-index: 0;
+  pointer-events: none; /* Permite interactuar con elementos encima */
 }
 
 /* Animación del fondo */

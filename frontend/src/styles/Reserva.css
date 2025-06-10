@@ -2,14 +2,19 @@
 
 .reserva-container {
   min-height: 100vh;
-  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  /* Fondo translúcido para dejar ver el fondo animado */
+  background: rgba(245, 247, 250, 0.7);
   font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar {
   background-color: #1e90ff;
   padding: 1rem;
   color: white;
+  position: relative;
+  z-index: 2;
 }
 
 .navbar ul {
@@ -33,6 +38,8 @@
 .reserva-content {
   padding: 2rem;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .reserva-titulo {
@@ -67,10 +74,12 @@
 .formulario-contenedor {
   max-width: 600px;
   margin: 0 auto;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco casi opaco */
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
 }
 
 .formulario-titulo {
@@ -128,6 +137,7 @@
 .formulario-reserva button:hover {
   background-color: #0c7cd5;
 }
+
 /* Simulación de días ocupados en el calendario */
 .react-calendar {
   margin: 1rem auto;
