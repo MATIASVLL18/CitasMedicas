@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { registerUserWithRole as registerWithEmailAndRole } from "../backend/authUtils";
 
-
 const Registro = () => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -14,7 +13,20 @@ const Registro = () => {
 
   const handleRegistro = async (e) => {
     e.preventDefault();
-    const res = await registerWithEmailAndRole(nombre, email, telefono, password);
+
+    // Detectar rol según el email
+    let role = null;
+    if (email.endsWith("@gmail.com")) {
+      role = "paciente";
+    } else if (email.endsWith("@doctor.com")) {
+      role = "doctor";
+    } else {
+      setError("El correo debe ser @gmail.com para paciente o @doctor.com para doctor");
+      return;
+    }
+
+    const res = await registerWithEmailAndRole(nombre, email, telefono, password, role);
+
     if (res.success) {
       if (res.role === "doctor") {
         navigate("/medico");
