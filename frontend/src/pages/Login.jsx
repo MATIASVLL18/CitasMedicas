@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+import { loginWithEmailAndRole } from "../backend/authUtils";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Aquí lógica de Firebase u otra validación
-    navigate("/home");
+    const res = await loginWithEmailAndRole(email, password);
+    if (res.success) {
+      if (res.role === "doctor") {
+        navigate("/medico");
+      } else {
+        navigate("/home");
+      }
+    } else {
+      setError("Correo o contraseña incorrectos");
+    }
   };
 
   return (
@@ -41,8 +52,10 @@ const Login = () => {
           </div>
           <button type="submit">Ingresar</button>
         </form>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <p>
-          ¿No tienes cuenta? <span onClick={() => navigate("/registro")}>Regístrate</span>
+          ¿No tienes cuenta?{" "}
+          <span onClick={() => navigate("/registro")}>Regístrate</span>
         </p>
       </div>
     </div>
