@@ -29,6 +29,11 @@ const Home = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.clear(); // Elimina los datos de sesión
+    navigate("/login");   // Redirige al login
+  };
+
   return (
     <div className="home-container">
       <nav className="navbar">
@@ -37,6 +42,9 @@ const Home = () => {
           <li onClick={() => navigate("/reserva")}>Reserva</li>
           <li onClick={() => navigate("/perfil")}>Perfil</li>
           <li onClick={() => navigate("/login")}>Login</li>
+          <li onClick={handleLogout} style={{ color: "red", cursor: "pointer" }}>
+            Cerrar sesión
+          </li>
         </ul>
       </nav>
 
