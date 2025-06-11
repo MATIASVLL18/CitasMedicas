@@ -51,35 +51,6 @@
   margin: 0 auto 30px;
 }
 
-/* Navegación */
-.navbar {
-  background-color: rgba(0, 119, 182, 0.9);
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.navbar li:hover {
-  color: #cceeff;
-}
-
 /* Contenedor de flechas e información */
 .arrow-controls {
   display: flex;

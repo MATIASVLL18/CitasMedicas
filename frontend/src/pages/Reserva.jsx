@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 import "../styles/Reserva.css";
-import "../styles/animations.css";  
+import "../styles/animations.css";
+import NavBarUsuario from "../layouts/NavBarUsuario"; 
 
 const especialidades = [
   { nombre: "Odontología", color: "#4caf50" },
@@ -14,9 +15,9 @@ const especialidades = [
 ];
 
 const diasOcupados = [
-  new Date(2025, 5, 9),  // 9 de junio
-  new Date(2025, 5, 12), // 12 de junio
-  new Date(2025, 5, 15), // 15 de junio
+  new Date(2025, 5, 9),
+  new Date(2025, 5, 12),
+  new Date(2025, 5, 15),
 ];
 
 const Reserva = () => {
@@ -32,16 +33,9 @@ const Reserva = () => {
   };
 
   return (
-    <div className="fondo-animado">  {/* Clase del fondo animado */}
+    <div className="fondo-animado">
       <div className="reserva-container">
-        <nav className="navbar">
-          <ul>
-            <li onClick={() => navigate("/home")}>Home</li>
-            <li onClick={() => navigate("/reserva")}>Reserva</li>
-            <li onClick={() => navigate("/perfil")}>Perfil</li>
-            <li onClick={() => navigate("/login")}>Login</li>
-          </ul>
-        </nav>
+        <NavBarUsuario /> {/* ✅ Se reemplazó el <nav> anterior */}
 
         <div className="reserva-content">
           <h1 className="reserva-titulo">¿Qué doctor necesitas?</h1>

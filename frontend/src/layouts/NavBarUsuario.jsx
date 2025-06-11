@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/navbarmedico.css';
 
-const NavBarMedico = () => {
+const NavBarUsuario = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -11,16 +11,17 @@ const NavBarMedico = () => {
   };
 
   return (
-    <div className="navbar-medico">
+    <nav className="navbar-medico">
       <div className="navbar-links">
-        <Link to="/medico" className="navbar-link">Home</Link>
-        <Link to="/perfilmedico" className="navbar-link">Perfil</Link>
+        <Link to="/home" className="navbar-link">Home</Link>
+        <Link to="/Reserva" className="navbar-link">Reserva</Link>
+        <Link to="/perfil" className="navbar-link">Perfil</Link>
       </div>
       <div className="navbar-logout">
         <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
       </div>
-    </div>
+    </nav>
   );
 };
 
-export default NavBarMedico;
+export default NavBarUsuario;

@@ -2,7 +2,7 @@ import React from "react";
 import { FaUser, FaPhone, FaEnvelope } from "react-icons/fa";
 import "../styles/Perfil.css";
 import "../styles/animations.css";
-import NavBarUsuario from "../layouts/NavBarUsuario"; 
+import NavBarMedico from "../layouts/NavBarMedico"; 
 
 const Perfil = () => {
   const usuario = {
@@ -13,7 +13,7 @@ const Perfil = () => {
 
   return (
     <div className="fondo-animado">
-      <NavBarUsuario /> 
+      <NavBarMedico /> 
 
       <div className="perfil-container">
         <div className="perfil-card">

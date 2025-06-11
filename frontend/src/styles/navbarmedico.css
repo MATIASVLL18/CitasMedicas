@@ -1,45 +1,49 @@
 .navbar-medico {
+  background-color: #0077b6;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #2e86de;
-  padding: 1rem 2rem;
-  color: white;
+  justify-content: center; /* centra todo horizontalmente */
+  padding: 0.75rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  position: relative;
 }
 
-.navbar-left {
-  flex: 1;
-}
-
-.navbar-right {
+.navbar-links {
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 30px;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navbar-link {
-  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.3s ease;
 }
 
-.navbar-link:hover {
-  color: #dcdcdc;
+.navbar-logout {
+  margin-left: auto;
 }
 
 .logout-button {
-  border-radius: 6px;
-  border: none;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   background-color: #ff4d4d;
+  border: none;
+  padding: 8px 16px;
   color: white;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 .logout-button:hover {
   background-color: #cc0000;
 }

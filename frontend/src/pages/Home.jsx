@@ -1,6 +1,8 @@
+// src/pages/Home.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
+import NavBarUsuario from "../layouts/NavBarUsuario"; 
 
 const contenido = [
   {
@@ -29,25 +31,9 @@ const Home = () => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.clear(); // Elimina los datos de sesión
-    navigate("/login");   // Redirige al login
-  };
-
   return (
     <div className="home-container">
-      <nav className="navbar">
-        <ul>
-          <li onClick={() => navigate("/home")}>Home</li>
-          <li onClick={() => navigate("/reserva")}>Reserva</li>
-          <li onClick={() => navigate("/perfil")}>Perfil</li>
-          <li onClick={() => navigate("/login")}>Login</li>
-          <li onClick={handleLogout} style={{ color: "red", cursor: "pointer" }}>
-            Cerrar sesión
-          </li>
-        </ul>
-      </nav>
-
+      <NavBarUsuario />
       <div className="home-content">
         <img src="/home.png" alt="Icono central" className="home-icon" />
 
