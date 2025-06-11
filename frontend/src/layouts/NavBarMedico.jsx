@@ -6,7 +6,7 @@ const NavBarMedico = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log('Cerrando sesión...');
+    localStorage.removeItem("user"); // Limpiar sesión
     navigate('/login'); // Redirigir al login
   };
 
@@ -14,11 +14,9 @@ const NavBarMedico = () => {
     <nav className="navbar-medico">
       <div className="navbar-left">
         <Link to="/medico" className="navbar-link">Home</Link>
+        <Link to="/perfil" className="navbar-link">Perfil</Link>
       </div>
-      <div className="navbar-right">-
-        <Link to="/boton1" className="navbar-link">Botón 1</Link>
-        <Link to="/boton2" className="navbar-link">Botón 2</Link>
-        <Link to="/boton3" className="navbar-link">Botón 3</Link>
+      <div className="navbar-right">
         <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
       </div>
     </nav>
