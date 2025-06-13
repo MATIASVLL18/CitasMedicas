@@ -1,8 +1,9 @@
 import React from "react";
 import { FaUser, FaPhone, FaEnvelope } from "react-icons/fa";
-import "../styles/Perfil.css";
-import "../styles/animations.css";
-import NavBarUsuario from "../layouts/NavBarUsuario"; 
+import { auth, db } from "../backend/firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+//obtiene datos de firebase..
+
 
 const Perfil = () => {
   const usuario = {
