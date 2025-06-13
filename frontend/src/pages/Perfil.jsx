@@ -4,6 +4,8 @@ import "../styles/Perfil.css";
 import { FaUser, FaPhone, FaEnvelope } from "react-icons/fa";
 import { auth, db } from "../backend/firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+//obtiene datos de firebase..
+
 
 const Perfil = () => {
   const navigate = useNavigate();
