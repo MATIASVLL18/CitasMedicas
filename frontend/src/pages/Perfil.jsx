@@ -19,15 +19,12 @@ const Perfil = () => {
   useEffect(() => {
     const obtenerDatosUsuario = async () => {
       const usuarioActual = auth.currentUser;
-
       if (usuarioActual) {
         const uid = usuarioActual.uid;
         const correo = usuarioActual.email;
-
         try {
           const docRef = doc(db, "usuarios", uid);
           const docSnap = await getDoc(docRef);
-
           if (docSnap.exists()) {
             const data = docSnap.data();
             setUsuario({
@@ -41,7 +38,6 @@ const Perfil = () => {
         }
       }
     };
-
     obtenerDatosUsuario();
   }, []);
 
@@ -51,17 +47,14 @@ const Perfil = () => {
 
   const handleGuardar = async () => {
     const usuarioActual = auth.currentUser;
-
     if (usuarioActual) {
       const uid = usuarioActual.uid;
-
       try {
         const docRef = doc(db, "usuarios", uid);
         await updateDoc(docRef, {
           nombre: usuario.nombre,
           telefono: usuario.telefono,
         });
-
         setEditando(false);
         alert("Datos actualizados correctamente.");
       } catch (error) {
@@ -72,48 +65,55 @@ const Perfil = () => {
   };
 
   return (
-    <div className="perfil-container">
-      <NavBarUsuario /> {/* Aquí se usa el componente de navegación */}
-
-      <div className="perfil-card">
-        <FaUser className="perfil-icono" />
-        {editando ? (
-          <>
-            <input
-              type="text"
-              name="nombre"
-              value={usuario.nombre}
-              onChange={handleChange}
-              placeholder="Nombre"
-            />
-            <input
-              type="text"
-              name="telefono"
-              value={usuario.telefono}
-              onChange={handleChange}
-              placeholder="Teléfono"
-            />
-            <input
-              type="email"
-              name="correo"
-              value={usuario.correo}
-              readOnly
-              placeholder="Correo"
-              style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
-            />
-            <button onClick={handleGuardar}>Guardar</button>
-            <button onClick={() => setEditando(false)}>Cancelar</button>
-          </>
-        ) : (
-          <>
-            <h2>{usuario.nombre}</h2>
-            <p><FaPhone className="perfil-dato-icono" /> {usuario.telefono}</p>
-            <p><FaEnvelope className="perfil-dato-icono" /> {usuario.correo}</p>
-            <button onClick={() => setEditando(true)}>Editar</button>
-          </>
-        )}
+    <>
+      <NavBarUsuario />
+      {/* Contenedor principal con fondo animado */}
+      <div className="perfil-container fondo-animado">
+        {/* Contenido del perfil, sobre el fondo animado */}
+        <div className="perfil-card">
+          <FaUser className="perfil-icono" />
+          {editando ? (
+            <>
+              <input
+                type="text"
+                name="nombre"
+                value={usuario.nombre}
+                onChange={handleChange}
+                placeholder="Nombre"
+              />
+              <input
+                type="text"
+                name="telefono"
+                value={usuario.telefono}
+                onChange={handleChange}
+                placeholder="Teléfono"
+              />
+              <input
+                type="email"
+                name="correo"
+                value={usuario.correo}
+                readOnly
+                placeholder="Correo"
+                style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
+              />
+              <button onClick={handleGuardar}>Guardar</button>
+              <button onClick={() => setEditando(false)}>Cancelar</button>
+            </>
+          ) : (
+            <>
+              <h2>{usuario.nombre}</h2>
+              <p>
+                <FaPhone className="perfil-dato-icono" /> {usuario.telefono}
+              </p>
+              <p>
+                <FaEnvelope className="perfil-dato-icono" /> {usuario.correo}
+              </p>
+              <button onClick={() => setEditando(true)}>Editar</button>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

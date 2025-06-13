@@ -1,4 +1,5 @@
-/* Fondo animado común */
+/* animations.css */
+
 .fondo-animado {
   position: relative;
   overflow: hidden;
@@ -15,7 +16,8 @@
   background: radial-gradient(circle, rgba(0,119,182,0.2) 10%, transparent 11%) center/15px 15px,
               radial-gradient(circle, rgba(0,119,182,0.15) 10%, transparent 11%) center/30px 30px;
   animation: gotas 8s linear infinite;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 @keyframes gotas {

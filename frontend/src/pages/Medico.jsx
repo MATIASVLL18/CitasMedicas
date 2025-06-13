@@ -3,7 +3,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/medico.css';
 import '../styles/animations.css';
-import '../styles/Home.css';
 import NavBarMedico from '../layouts/NavBarMedico'; 
 
 const Medico = () => {

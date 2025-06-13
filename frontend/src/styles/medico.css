@@ -3,11 +3,13 @@
   margin: 5rem auto;
   padding: 2rem;
   border-radius: 10px;
-  background-color: #f9f9f9; /* mismo fondo que el Login */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* misma sombra que el Login */
+  background-color: #ffffff; /* fondo blanco puro para que sea sólido */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); /* sombra más visible */
   text-align: center;
   font-family: inherit;
-  color: #333; /* texto oscuro, como en Login */
+  color: #333;
+  position: relative; /* para seguridad */
+  z-index: 1; /* asegurar que esté por encima */
 }
 
 .cronograma-table {
