@@ -1,0 +1,85 @@
+/* Fondo animado con gotas azules (como en Home) */
+.historial-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo animado */
+.historial-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,119,182,0.2) 10%, transparent 11%) center/15px 15px,
+              radial-gradient(circle, rgba(0,119,182,0.15) 10%, transparent 11%) center/30px 30px;
+  animation: gotas 8s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Animación gotas */
+@keyframes gotas {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 200px 200px;
+  }
+}
+
+/* Contenido centrado y con padding como Home */
+.historial-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.historial-content h2 {
+  color: #0077b6;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Lista de reservas */
+.historial-lista {
+  list-style: none;
+  padding: 0;
+}
+
+/* Tarjeta de cada reserva */
+.historial-item {
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  border-left: 6px solid #0077b6;
+  margin-bottom: 20px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.historial-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.2);
+}
+
+.historial-item strong {
+  color: #0d47a1;
+  display: inline-block;
+  width: 140px;
+}
+
+.historial-item p {
+  margin: 5px 0;
+  color: #333;
+}

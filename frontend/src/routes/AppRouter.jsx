@@ -6,10 +6,10 @@ import Home from "../pages/Home";
 import Reserva from "../pages/Reserva";
 import Perfil from "../pages/Perfil";
 import Medico from "../pages/Medico";
-import PerfilMedico from "../pages/PerfilMedico"
-import FichasMedicas from "../pages/FichasMedicas"
+import PerfilMedico from "../pages/PerfilMedico";
+import FichasMedicas from "../pages/FichasMedicas";
 import ProtectedRoute from "../routes/ProtectedRoute";
-
+import Historial from "../pages/Historial"; // ✅ Importado nuevo componente
 
 const AppRouter = () => {
   return (
@@ -37,6 +37,14 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/historial"
+          element={
+            <ProtectedRoute allowedRoles={["paciente"]}>
+              <Historial />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Rutas protegidas para ambos */}
         <Route
@@ -57,7 +65,6 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/fichasmedicas"
           element={
@@ -66,7 +73,6 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/perfilmedico"
           element={

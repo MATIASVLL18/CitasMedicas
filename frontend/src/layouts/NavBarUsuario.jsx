@@ -14,7 +14,8 @@ const NavBarUsuario = () => {
     <nav className="navbar-medico">
       <div className="navbar-links">
         <Link to="/home" className="navbar-link">Home</Link>
-        <Link to="/Reserva" className="navbar-link">Reserva</Link>
+        <Link to="/reserva" className="navbar-link">Reserva</Link>
+        <Link to="/historial" className="navbar-link">Historial</Link> {/* ✅ Nuevo */}
         <Link to="/perfil" className="navbar-link">Perfil</Link>
       </div>
       <div className="navbar-logout">
