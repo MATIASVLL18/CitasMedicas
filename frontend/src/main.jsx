@@ -8,6 +8,7 @@ import Medico from './pages/Medico';
 import Reserva from "./pages/Reserva";
 import Perfil from "./pages/Perfil";
 import PerfilMedico from "./pages/PerfilMedico"
+import FichasMedicas from "./pages/FichasMedicas"
 
 import "./styles/index.css";
 
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/medico" element={<Medico />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/perfilmedico" element={<PerfilMedico />} />
+        <Route path="/fichasmedicas" element={<FichasMedicas />} />
       </Routes>
     </Router>
   </React.StrictMode>

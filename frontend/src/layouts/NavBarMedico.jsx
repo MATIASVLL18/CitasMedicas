@@ -15,6 +15,7 @@ const NavBarMedico = () => {
       <div className="navbar-links">
         <Link to="/medico" className="navbar-link">Home</Link>
         <Link to="/perfilmedico" className="navbar-link">Perfil</Link>
+        <Link to="/fichasmedicas" className="navbar-link">Fichas Médicas</Link>
       </div>
       <div className="navbar-logout">
         <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>

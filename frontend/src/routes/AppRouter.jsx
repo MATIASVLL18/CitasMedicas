@@ -7,6 +7,7 @@ import Reserva from "../pages/Reserva";
 import Perfil from "../pages/Perfil";
 import Medico from "../pages/Medico";
 import PerfilMedico from "../pages/PerfilMedico"
+import FichasMedicas from "../pages/FichasMedicas"
 import ProtectedRoute from "../routes/ProtectedRoute";
 
 
@@ -53,6 +54,15 @@ const AppRouter = () => {
           element={
             <ProtectedRoute allowedRoles={["doctor"]}>
               <Medico />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/fichasmedicas"
+          element={
+            <ProtectedRoute allowedRoles={["doctor"]}>
+              <FichasMedicas />
             </ProtectedRoute>
           }
         />
