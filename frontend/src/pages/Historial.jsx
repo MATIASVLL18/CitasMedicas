@@ -7,11 +7,12 @@ import "../styles/Historial.css";
 
 const Historial = () => {
   const [reservas, setReservas] = useState([]);
+  const [mostrarReservas, setMostrarReservas] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filtro, setFiltro] = useState("todas");
+  const [orden, setOrden] = useState("desc");
 
   useEffect(() => {
-    const auth = getAuth();
-
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
@@ -35,26 +36,60 @@ const Historial = () => {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    let filtradas = [...reservas];
+
+    if (filtro === "pendientes") {
+      const hoy = new Date();
+      hoy.setHours(0, 0, 0, 0); // eliminar horas para comparar solo la fecha
+      filtradas = filtradas.filter(reserva => {
+        const [year, month, day] = reserva.fecha.split("-").map(Number);
+        const fechaReserva = new Date(year, month - 1, day);
+        return fechaReserva > hoy;
+      });
+    }
+
+    filtradas.sort((a, b) => {
+      const fechaA = new Date(a.fecha + " " + a.hora);
+      const fechaB = new Date(b.fecha + " " + b.hora);
+      return orden === "asc" ? fechaA - fechaB : fechaB - fechaA;
+    });
+
+    setMostrarReservas(filtradas);
+  }, [reservas, filtro, orden]);
+
   return (
     <div className="historial-container">
       <NavBarUsuario />
-      <h2>Historial de Reservas</h2>
-      {loading ? (
-        <p>Cargando reservas...</p>
-      ) : reservas.length === 0 ? (
-        <p>No tienes reservas registradas.</p>
-      ) : (
-        <ul className="historial-lista">
-          {reservas.map((reserva, index) => (
-            <li key={index} className="historial-item">
-              <strong>Fecha:</strong> {reserva.fecha} <br />
-              <strong>Hora:</strong> {reserva.hora} <br />
-              <strong>Especialidad:</strong> {reserva.especialidad} <br />
-              <strong>Motivo:</strong> {reserva.motivo}
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="historial-content">
+        <h2>Historial de Reservas</h2>
+
+        <div className="filtros">
+          <button onClick={() => setFiltro("todas")}>Todas las reservas</button>
+          <button onClick={() => setFiltro("pendientes")}>Reservas pendientes</button>
+          <select onChange={(e) => setOrden(e.target.value)} value={orden}>
+            <option value="desc">Recientes primero</option>
+            <option value="asc">Antiguas primero</option>
+          </select>
+        </div>
+
+        {loading ? (
+          <p>Cargando reservas...</p>
+        ) : mostrarReservas.length === 0 ? (
+          <p>No se encontraron reservas.</p>
+        ) : (
+          <ul className="historial-lista">
+            {mostrarReservas.map((reserva, index) => (
+              <li key={index} className="historial-item">
+                <p><strong>Fecha:</strong> {reserva.fecha}</p>
+                <p><strong>Hora:</strong> {reserva.hora}</p>
+                <p><strong>Especialidad:</strong> {reserva.especialidad}</p>
+                <p><strong>Motivo:</strong> {reserva.motivo}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
