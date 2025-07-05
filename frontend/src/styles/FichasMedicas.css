@@ -71,38 +71,52 @@
   border-bottom: 1.5px solid #e3eaf6;
   transition: background 0.15s;
 }
+
 .acordeon-cabecera:hover {
   background: #1b5fa7;
 }
-.acordeon-nombre {
-  font-weight: bold;
-  font-size: 1.06em;
-  margin-right: 1.1em;
+
+.acordeon-identidad {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 230px;
+  min-width: 0;
+  gap: 2px;
+  margin-right: 1em;
 }
+.acordeon-nombre,
 .acordeon-rut {
-  opacity: 0.92;
-  font-size: 1em;
-  margin-right: auto;
   white-space: nowrap;
-  overflow: visible;
-  text-overflow: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: block;
+  max-width: 210px;
 }
+
+.acordeon-boton-contenedor {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .acordeon-boton {
   background: none;
   border: none;
   color: #fff;
   font-size: 1.15em;
   cursor: pointer;
-  margin-left: 18px;
-  padding: 3px 8px;
   border-radius: 4px;
-  transition: background 0.15s;
-}
-.acordeon-boton:hover {
-  background: #174e8d;
+  padding: 3px 8px;
+  transition: opacity 0.18s, color 0.15s;
+  margin-left: 8px;
 }
 
+.acordeon-boton:hover {
+  background: none;
+  color: #dbeafe;
+  opacity: 0.8;
+}
 .acordeon-detalle {
   background: #fff;
   color: #23395d;
